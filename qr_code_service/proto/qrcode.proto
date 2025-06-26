@@ -1,0 +1,16 @@
+// proto/qrcode.proto
+syntax = "proto3";
+package qrcode;
+
+message QrCodeRequest {
+  string content = 1;
+  int32 size = 2;
+}
+
+message QrCodeResponse {
+  bytes image_data = 1;
+}
+
+service QrCodeGenerator {
+  rpc Generate(QrCodeRequest) returns (QrCodeResponse);
+}
